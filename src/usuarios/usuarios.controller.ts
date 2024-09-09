@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
@@ -59,6 +60,12 @@ export class UsuariosController {
       },
     ];
 
+    res.status(HttpStatus.OK).json({ ok: true, result });
+  }
+
+  @Delete(':id')
+  async deleteUser(@Param('id') id: number, @Res() res: Response) {
+    const result = await this.service.deleteUser(id);
     res.status(HttpStatus.OK).json({ ok: true, result });
   }
 

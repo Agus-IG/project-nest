@@ -125,4 +125,17 @@ export class UsuariosService {
       throw new HttpException(err.message, err.status);
     }
   }
+
+  async deleteUser(id: number) {
+    try {
+      const user = await this.getOne(id);
+      const result = await this.repo.remove(user);
+      return result;
+    } catch (err) {
+      console.error(err);
+      if (err instanceof QueryFailedError)
+        throw new HttpException(`${err.name} ${err.driverError}`, 404);
+      throw new HttpException(err.message, err.status);
+    }
+  }
 }
