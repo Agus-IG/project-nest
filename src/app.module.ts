@@ -10,9 +10,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { JwtMiddleware } from './usuarios/auth/middlewares/jwt/jwt.middleware';
 import { db } from './config';
+import { SocketModule } from './socket/socket.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(db), UsuariosModule],
+  imports: [TypeOrmModule.forRoot(db), UsuariosModule, SocketModule],
   controllers: [AppController],
   providers: [AppService],
 })

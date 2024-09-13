@@ -17,7 +17,7 @@ import { UsuariosService } from './usuarios.service';
 import { UsuarioDto } from './usuarios.dto';
 import { Response } from 'express';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { PaginationQueryDto } from 'src/common/paginator/pagination.dto';
+import { PaginationQueryDto } from 'src/common';
 
 @Controller('usuarios')
 export class UsuariosController {
